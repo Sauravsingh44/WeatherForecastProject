@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="galleryApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body ng-controller="GalleryController">
+    <h1 align="center">GALLERY</h1>
+    <button class="go-back-btn" ng-click="goBack()">Go Back</button>
+    <div class="container">
+        <div class="gallery">
+            <div class="image-container" ng-repeat="image in images" ng-click="openModal(image)">
+                <img ng-src="{{image.src}}" alt="Gallery Image">
+                <div class="button-container">
+                    <div class="like-box" ng-class="{ 'liked': image.liked }" ng-click="toggleLike(image, $event)">
+                        <i class="heart-icon" ng-class="{ 'liked-heart': image.liked }">&#x2764;</i> Like
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="count">
+        <label for="">Total Liked images:</label>
+        <input type="text" ng-model="totalLikes" readonly>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" ng-show="modalVisible">
+        <div class="modal-content">
+            <span class="close-btn" ng-click="closeModal()">&times;</span>
+            <img ng-src="{{selectedImage.src}}" alt="Zoomed Image" class="modal-image">
+            <a href="{{selectedImage.src}}" download class="download-modal-btn">Download</a>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+        angular.module('galleryApp', [])
+            .controller('GalleryController', function ($scope) {
+                $scope.images = [
+                    { src: 'gallery_images/image1.jpg', liked: false },
+                    { src: 'gallery_images/image2.jpg', liked: false },
+                    { src: 'gallery_images/image3.jpg', liked: false },
+                    { src: 'gallery_images/image4.jpg', liked: false },
+                    { src: 'gallery_images/image5.jpg', liked: false },
+                    { src: 'gallery_images/image6.jpg', liked: false },
+                    { src: 'gallery_images/image7.jpg', liked: false },
+                    { src: 'gallery_images/image8.jpg', liked: false },
+                    { src: 'gallery_images/image9.jpg', liked: false },
+                    { src: 'gallery_images/image10.jpg', liked: false },
+                    { src: 'gallery_images/image11.jpg', liked: false },
+                    { src: 'gallery_images/image12.jpg', liked: false }
+                ];
+
+                $scope.totalLikes = 0;
+                $scope.modalVisible = false;
+                $scope.selectedImage = {};
+
+                $scope.toggleLike = function(image, event) {
+                    event.stopPropagation();  // Prevent modal from opening when liking an image
+                    image.liked = !image.liked;
+                    $scope.totalLikes = $scope.images.filter(function(img) {
+                        return img.liked;
+                    }).length;
+                    var message = image.liked ? 'You liked this picture!' : 'You unliked this picture!';
+                    alert(message);
+                };
+
+                $scope.openModal = function(image) {
+                    $scope.selectedImage = image;
+                    $scope.modalVisible = true;
+                };
+
+                $scope.closeModal = function() {
+                    $scope.modalVisible = false;
+                };
+
+                $scope.goBack = function () {
+                    window.history.back();
+                };
+            });
+    </script>
+</body>
+</html>

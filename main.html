@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather forecast</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        header nav {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header nav .menu {
+            display: flex;
+            gap: 20px;
+        }
+        header nav .menu a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header nav .menu a:hover {
+            color: #ddd;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social a:hover {
+            color: #ddd;
+        }
+		nav {
+            position: sticky;
+            top: 0;
+            background-color: blueviolet;
+            color: aliceblue;
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<header>    
+    <nav>
+        <div class="logo"><h1> WEATHER FORECAST</h1></div>
+        <div class="menu">
+            <a href="main.html">Home</a>
+            <a href="gallery.html">gallery</a>
+            <a href="contact.html">contact</a>
+        </div>
+    </nav>
+    <table border="1" width="100%">
+        <tr>
+            <td style="text-align: center; color: rgb(203, 236, 12); height:40px ;" width="70px"><b>NEWS:</b></td>
+            <td colspan="4">
+                <font color="yellow">
+                <marquee behavior="alternate" onmouseover="stop()" onmouseout="start()">
+                <strong>
+                Today's weather is <mark>Sunny.</mark>
+                </strong>
+                </font>
+                </marquee>
+            </td>
+        </tr>
+    </table>
+    <main>
+        <section>
+            <h3>Welcome To Weather forecast website</h3>
+            <h1>Check whether your climate is  <span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
+            <br><br>
+            <a href="signup.html" class="btnone">Sign up for next</a>
+            <a href="weather.html" class="btntwo" id="weatherLink" disabled>Click here now...</a>
+        </section>
+    </main>
+</header>
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">Weather App</div>
+            <div class="footer-social">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Contact Information</h4>
+            <p>University of petroleum and energy studies</p>
+            <p>Dehradhun, Bidholi</p>
+            <p>Email: info@weatherapp.com</p>
+            <p>Phone: +91 727389387@</p>
+        </div>
+    </div>
+    <p>&copy; 2024 Weather App. All rights reserved.</p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var signUpButton = document.querySelector(".btnone");
+    var weatherLinkButton = document.getElementById("weatherLink");
+    weatherLinkButton.disabled = true;
+    signUpButton.addEventListener("click", function() {
+        var isSignedUp = confirm("Please sign up before you proceed");
+        if (isSignedUp) {
+            weatherLinkButton.disabled = false;
+        }
+    });
+});
+</script>
+</body>
+</html>

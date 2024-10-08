@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+  }
+body{
+  border: 9px solid black;
+}
+  header {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)),
+      url("weather.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  nav {
+    width: 100%;
+    height: 15vh;
+    background: rgba(0, 0, 0);
+    color: rgb(7, 250, 100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: x-large;
+    z-index: 1;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  nav a:hover {
+    transform: scale(1.1);
+    background-color: #555;
+  }
+  nav .logo {
+    width: 25%;
+    text-align: center;
+  }
+  
+  nav .menu {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 100px;
+  }
+  
+  nav .menu a {
+    width: 25%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+  }
+  
+  nav .menu a:first-child {
+    color: #00b894;
+  }
+  
+  main {
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  section h3 {
+    font-size: 35px;
+    font-weight: 200;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px black;
+  }
+  
+  section h1 {
+    margin: 30px 0 20px 0;
+    font-size: 55px;
+    font-weight: 700;
+    text-shadow: 2px 1px 5px black;
+    text-transform: uppercase;
+  }
+  
+  section p {
+    font-size: 25px;
+    word-spacing: 2px;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 1px black;
+  }
+  
+  section a {
+    padding: 12px 30px;
+    border-radius: 4px;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+  }
+  
+  section .btnone {
+    border: 3px solid ;
+    background: #fff;
+    color: #ca0d0d;
+  }
+  
+  .btnone:hover {
+    background: #00b894;
+    color:purple;
+    font-size: larger;
+  }
+  
+  section .btntwo {
+    border: 3px solid ;
+    background: #00b894;
+    color: white;
+  }
+  
+  .btntwo:hover {
+    background: #fff;
+    color: purple;
+    font-size: larger;
+  }
+  
+  .change_content:after {
+    content: "";
+    animation: changetext 10s infinite linear;
+    color: #fffb1c;
+  }
+  
+  @keyframes changetext {
+    0% {
+      content: "Sunny";
+    }
+    20% {
+      content: "Rainy";
+    }
+    35% {
+      content: "Day";
+    }
+    60% {
+      content: "Night";
+    }
+    100% {
+      content: "Windy";
+    }
+  }
+  a:hover{
+    transform: rotate(-20deg) scale(1.6);
+  }
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 45%;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ddd;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-section p {
+  color: #ccc;
+  margin-bottom: 5px;
+}
+
+.footer-section p:last-child {
+  margin-bottom: 0;
+}

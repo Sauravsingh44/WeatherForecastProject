@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp form</title>
+    <style>        
+        *{
+            font-weight: 600;
+            box-sizing: content-box;
+        }
+        body{
+            background-image: url("signupbackground.jpg");
+            height:100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #box{
+            margin:auto;
+            width:85%;
+            height:100%;
+            border-radius: 5px;
+            padding:5px;
+            position:relative;
+            top:-15px;
+        }
+        .upper{
+            max-width: 250px;
+            border:2px solid rgb(108, 116, 108);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            background-color: rgb(248, 232, 210 ,);
+            margin:auto;
+            margin-top: 40px;
+            border-width: 10px;
+
+        }
+        #design{
+            color:rgb(34, 5, 70);
+            border-color: rgb(229, 247, 69);
+            border-radius: 5px;
+        }
+        button{
+            transition: 0.8s;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color:rgb(180, 118, 182);
+            transform: scale(1.2);
+            color: white;
+        }
+        #mupper{
+            color:rgb(28, 241, 241);
+            margin-top: 10px;
+        }
+        h1{
+            text-decoration:underline;
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
+<body>  
+    <div id="mupper">
+        <h1 align="center">SIGN IN</h1>
+        <div class="upper">
+            <h1>LOGIN</h1>
+            <div >
+                <label for="name">Username</label>
+                <input type="text" name="name" placeholder="enter login id" required>
+                <br>
+                <br>
+                <label for="pass">Password</label>
+                <input type="password" name="pass" placeholder="enter password" required>
+                <br>
+                <br>
+                <button id="design">Login</button>
+                <p>Forgot password?<a href="">Click here</a></p>
+                
+                <p>Or login with
+                <button id="google">Google</button><br><br>
+                <button id="facebook">Facebook</button>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var loginButton = document.getElementById("design");
+    loginButton.addEventListener("click", function() {
+        var usernameInput = document.getElementsByName("name")[0];
+        var passwordInput = document.getElementsByName("pass")[0];
+        if (usernameInput.value === "" || passwordInput.value === "") {
+            alert("Please fill in both username and password fields.");
+        } else {
+            var isLoginSuccessful = true; 
+            if (isLoginSuccessful) {
+                localStorage.setItem('isSignedUp', true);
+                alert("Thanks for logging in!");
+                setTimeout(function() {
+                    window.location.href = "main.html";
+                }, 2000);
+            }
+        }
+    });
+
+    var googleButton = document.getElementById("google");
+    googleButton.addEventListener("click", function() {
+        localStorage.setItem('isSignedUp', true);
+        alert("You have signed in with Google.");
+        window.location.href = "main.html";
+    });
+
+    var facebookButton = document.getElementById("facebook");
+    facebookButton.addEventListener("click", function() {
+        localStorage.setItem('isSignedUp', true);
+        alert("You have signed in with Facebook.");
+        window.location.href = "main.html";
+    });
+});
+
+    
+    </script>
+</body>
+</html>
